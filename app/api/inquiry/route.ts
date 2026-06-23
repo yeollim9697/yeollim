@@ -105,7 +105,7 @@ export async function POST(request: Request) {
       to,
       replyTo:
         data.email && data.email.length > 0 ? data.email : undefined,
-      subject: `[열림 문의] ${data.name} / ${categoryLabels.join("·")}`,
+      subject: `[문의] ${data.name} / ${categoryLabels.join("·")}`,
       react: InquiryEmail({
         name: data.name,
         phone: data.phone,

@@ -123,7 +123,7 @@ export function InquiryForm() {
       <div className={styles.successBox} role="status">
         <p className={styles.successTitle}>문의가 접수되었습니다</p>
         <p className={styles.successText}>
-          빠르게 확인 후 연락드리겠습니다. 급하시면 전화·카카오톡으로도 문의해주세요.
+          빠르게 확인 후 연락드리겠습니다. 추가로 궁금하신 점 있으시면 카카오톡 문의를 이용해 주세요.
         </p>
       </div>
     );

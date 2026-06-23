@@ -1,0 +1,8 @@
+# Netlify 배포 설정 — Next.js(App Router, SSR + API 라우트) 서빙
+# @netlify/plugin-nextjs 런타임이 .next 출력을 서버리스/엣지로 변환해 서빙한다.
+[build]
+  command = "next build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

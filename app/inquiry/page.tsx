@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import { MessageCircle, Phone, Mail, ImagePlus } from "lucide-react";
+import { MessageCircle, Phone, Mail } from "lucide-react";
 import { Container } from "@/components/shared/Container";
 import { PageHeader } from "@/components/shared/PageHeader";
 import { EmailCopyButton } from "@/components/inquiry/EmailCopyButton";
-import { SITE, CATEGORIES } from "@/lib/site";
+import { InquiryForm } from "./InquiryForm";
+import { SITE } from "@/lib/site";
 import styles from "./Inquiry.module.css";
 
 export const metadata: Metadata = {
@@ -33,101 +34,8 @@ export default function InquiryPage() {
 
       <Container as="section" className={styles.inquiryContainer}>
         <div className={styles.grid}>
-          {/* 외주 신청 폼 */}
-          <form aria-label="외주 신청 폼" className={styles.form}>
-            <div className={styles.fieldGroup}>
-              <FieldLabel num="01" required>이름</FieldLabel>
-              <input
-                type="text"
-                maxLength={30}
-                placeholder="홍길동"
-                className={styles.input}
-              />
-            </div>
-
-            <div className={styles.fieldGroup}>
-              <FieldLabel num="02" required>연락처</FieldLabel>
-              <input
-                type="tel"
-                placeholder="010-0000-0000"
-                className={styles.input}
-              />
-            </div>
-
-            <div className={styles.fieldGroup}>
-              <FieldLabel num="03">이메일 (선택)</FieldLabel>
-              <input
-                type="email"
-                placeholder="example@example.com"
-                className={styles.input}
-              />
-            </div>
-
-            <div className={styles.fieldGroup}>
-              <FieldLabel num="04" required>작업 종류 (중복 선택)</FieldLabel>
-              <div className={styles.checkboxGrid}>
-                {CATEGORIES.map((c) => (
-                  <label key={c.id} className={styles.checkboxLabel}>
-                    <input 
-                      type="checkbox" 
-                      name="categories" 
-                      value={c.id} 
-                      className={styles.checkboxInput} 
-                    />
-                    {c.kr}
-                  </label>
-                ))}
-              </div>
-            </div>
-
-            <div className={styles.fieldGroup}>
-              <FieldLabel num="05" required>상세 내용</FieldLabel>
-              <textarea
-                rows={6}
-                maxLength={1000}
-                placeholder="작업 위치·규모·희망 시기 등 자유롭게 작성해주세요."
-                className={styles.textarea}
-              />
-            </div>
-
-            <div className={styles.fieldGroup}>
-              <FieldLabel num="06">사진 첨부 (선택)</FieldLabel>
-              {/* 사진 첨부 드롭존 — 현재 UI 형태만, 백엔드 업로드는 추후 연결 */}
-              <label className={styles.dropzone}>
-                <input
-                  type="file"
-                  name="photos"
-                  accept="image/*"
-                  multiple
-                  className={styles.fileInput}
-                />
-                <ImagePlus
-                  size={26}
-                  strokeWidth={1.5}
-                  className={styles.dropzoneIcon}
-                  aria-hidden
-                />
-                <span className={styles.dropzoneText}>
-                  도면과 현장 철거사진 등 상담에 필요한 사진을 첨부해 주세요.
-                </span>
-                <span className={styles.dropzoneHint}>
-                  클릭하여 사진 선택 · JPG · PNG
-                </span>
-              </label>
-            </div>
-
-            <label className={styles.consentLabel}>
-              <input type="checkbox" required className={styles.consentInput} />
-              <span>개인정보 수집·이용에 동의합니다. (필수)</span>
-            </label>
-
-            <button
-              type="submit"
-              className={styles.submitBtn}
-            >
-              문의 신청하기
-            </button>
-          </form>
+          {/* 외주 신청 폼 (클라이언트) */}
+          <InquiryForm />
 
           {/* 직접 연락 채널 */}
           <aside aria-label="직접 연락 채널" className={styles.aside}>
@@ -171,22 +79,6 @@ export default function InquiryPage() {
         </div>
       </Container>
     </>
-  );
-}
-
-/**
- * 폼 필드 라벨 서브 컴포넌트
- * - 모든 컴포넌트는 함수형으로 작성
- * - 스타일링은 CSS Modules 사용 (Inquiry.module.css)
- */
-function FieldLabel({
-  num, required, children,
-}: { num: string; required?: boolean; children: React.ReactNode }) {
-  return (
-    <label className={styles.label}>
-      — {num} / {children}
-      {required ? <span className={styles.requiredStar}>*</span> : null}
-    </label>
   );
 }
 

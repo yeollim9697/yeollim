@@ -217,11 +217,103 @@
   letter-spacing: -0.01em;
 }
 
-.submitBtn:hover {
+.submitBtn:hover:not(:disabled) {
   background-color: transparent;
   color: var(--color-graphite, #121212);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(18, 18, 18, 0.08);
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+/* 필드 검증/서버 에러 텍스트 */
+.errorText {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: #B42318; /* 차분한 경고 레드 — 폼 검증 한정 사용 */
+}
+
+/* 첨부 사진 미리보기 */
+.previewList {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
+}
+
+.previewItem {
+  position: relative;
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--color-silver, #C4C7CC);
+  overflow: hidden;
+  background-color: var(--color-paper, #F8FAFC);
+}
+
+.previewThumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.previewRemove {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: none;
+  border-radius: 9999px;
+  background-color: rgba(22, 22, 22, 0.72);
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.previewRemove:hover {
+  background-color: rgba(22, 22, 22, 0.92);
+}
+
+/* 제출 성공 박스 */
+.successBox {
+  border: 1px solid var(--color-graphite, #161616);
+  background-color: var(--color-canvas, #FFFFFF);
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.successTitle {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display), sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-graphite, #161616);
+}
+
+.successText {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-ghost, #52525B);
+}
+
+/* honeypot — 사람에게 보이지 않게 (접근성 트리에서도 제외) */
+.hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
 }
 
 /* 안내 모노 텍스트 */

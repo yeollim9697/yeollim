@@ -1,0 +1,90 @@
+/* 네브바 문의하기 캡슐 버튼 (히어로 섹션 버튼 스타일 적용) */
+.inquiryBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.55rem 1.5rem; /* 네브바 두께에 맞는 적절한 세로 비율 */
+  font-family: var(--font-body), sans-serif;
+  font-size: 13.5px;
+  font-weight: 700;
+  border-radius: 9999px; /* 완벽한 캡슐 형태 */
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: 0.02em;
+  cursor: pointer;
+}
+
+/* 기본 상태 (비활성화 상태) — 히어로 Primary(화이트 메탈) 스타일 적용 */
+.inquiryBtnNormal {
+  background-color: var(--color-canvas, #FFFFFF);
+  color: var(--color-graphite, #121212);
+  border: 1px solid var(--color-canvas, #FFFFFF);
+}
+
+.inquiryBtnNormal:hover {
+  background-color: transparent;
+  color: var(--color-canvas, #FFFFFF);
+  border-color: var(--color-canvas, #FFFFFF);
+  transform: translateY(-1px); /* 헤더 영역 크기에 맞춘 미세 호버 상승 */
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.12);
+}
+
+/* 문의하기 페이지 활성화 상태 — 실버 톤 아웃라인 */
+.inquiryBtnActive {
+  background-color: var(--color-silver, #CBD5E1);
+  color: var(--color-graphite, #121212);
+  border: 1px solid var(--color-silver, #CBD5E1);
+}
+
+.inquiryBtnActive:hover {
+  background-color: transparent;
+  color: var(--color-silver, #CBD5E1);
+  border-color: var(--color-silver, #CBD5E1);
+  transform: translateY(-1px);
+}
+
+/* 모바일 메뉴 토글 버튼 */
+.mobileToggle {
+  display: inline-flex;
+  height: 44px; /* 최소 터치 영역 44px 보장 */
+  width: 44px;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto; /* flex 레이아웃 내에서 강제로 우측 끝 정렬 보장 */
+  border: none; /* 아웃라인 테두리선 완전히 제거 */
+  background-color: transparent;
+  color: var(--color-canvas, #FFFFFF);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s ease;
+}
+
+.mobileToggle:hover,
+.mobileToggle:focus {
+  color: var(--color-silver, #CBD5E1); /* 테두리가 없으므로 아이콘 자체 색상 변화 제공 */
+}
+
+@media (min-width: 768px) {
+  .mobileToggle {
+    display: none;
+  }
+}
+
+/* 모바일 즉시 통화 링크 */
+.phoneLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-display), sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--color-canvas, #FFFFFF);
+  text-decoration: none;
+  padding: 0.75rem 0; /* 터치 영역 확장 */
+  transition: color 0.2s ease;
+}
+
+.phoneLink:hover {
+  color: var(--color-silver, #CBD5E1);
+}
+

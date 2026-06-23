@@ -1,0 +1,168 @@
+/* 소개 페이지 메인 레이아웃 */
+.aboutContainer {
+  padding-bottom: 8rem;
+}
+
+@media (min-width: 768px) {
+  .aboutContainer {
+    padding-bottom: 10rem;
+  }
+}
+
+/* 에디토리얼 그리드 (소개글 & 대표 이미지) — 모바일은 단일 컬럼, 데스크톱은 2열 복원 */
+.editorialGrid {
+  display: block;
+  max-width: 800px;
+}
+
+@media (min-width: 768px) {
+  .editorialGrid {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 4rem;
+    align-items: flex-start;
+    max-width: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .editorialGrid {
+    grid-template-columns: 1fr 400px;
+    gap: 6rem;
+  }
+}
+
+/* 왼쪽 브랜드 소개글 본문 */
+.article {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 첫 문장 강조 (Lead Paragraph) */
+.leadText {
+  font-family: var(--font-body), sans-serif;
+  font-size: 16px; /* 모바일 리드 폰트 축소 */
+  font-weight: 500;
+  line-height: 1.75;
+  color: var(--color-graphite, #121212);
+  letter-spacing: -0.015em;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .leadText {
+    font-size: 18px; /* 데스크톱 리드 폰트 축소 */
+  }
+}
+
+/* 일반 본문 문단 */
+.bodyText {
+  font-family: var(--font-body), sans-serif;
+  font-size: 13.5px; /* 모바일 본문 폰트 축소 */
+  line-height: 1.85;
+  color: var(--color-silver-deep, #64748B);
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .bodyText {
+    font-size: 15px; /* 데스크톱 본문 폰트 복원 */
+  }
+}
+
+/* 소개글 하단 버튼 그룹 */
+.buttonGroup {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid var(--color-silver, #E2E8F0);
+  padding-top: 2.5rem;
+}
+
+/* 캡슐형 버튼 스타일 */
+.btnPrimary,
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2.25rem;
+  font-family: var(--font-body), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 9999px;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+
+.btnPrimary {
+  background-color: var(--color-graphite, #121212);
+  color: var(--color-canvas, #FFFFFF);
+  border: 1px solid var(--color-graphite, #121212);
+}
+
+.btnPrimary:hover {
+  background-color: transparent;
+  color: var(--color-graphite, #121212);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(18, 18, 18, 0.08);
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: var(--color-graphite, #121212);
+  border: 1px solid var(--color-graphite, #121212);
+}
+
+.btnSecondary:hover {
+  background-color: var(--color-paper, #F8FAFC);
+  transform: translateY(-2px);
+}
+
+/* 오른쪽 이미지 영역 (모바일은 보이지 않고 데스크톱에서만 노출) */
+.imageSidebar {
+  display: none; /* 모바일에서 용접 이미지 비노출 */
+  flex-direction: column;
+  width: 100%;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .imageSidebar {
+    display: flex; /* 데스크톱에서 복원 */
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+.imageWrapper {
+  position: relative;
+  aspect-ratio: 4/5;
+  overflow: hidden;
+  border: 1px solid var(--color-graphite);
+  background-color: var(--color-paper);
+  transition: border-color 0.3s ease;
+}
+
+.imageWrapper:hover {
+  border-color: var(--color-silver-deep);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.02);
+}
+
+

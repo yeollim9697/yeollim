@@ -1,0 +1,150 @@
+/* 핵심 철학 섹션 컨테이너 */
+.section {
+  padding-top: 4rem; /* 모바일에서 섹션 상단 여백 축소 */
+  padding-bottom: 4rem; /* 모바일에서 섹션 하단 여백 축소 */
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 8rem; /* 데스크톱 여백 유지 */
+    padding-bottom: 8rem;
+  }
+}
+
+/* 2열 배치 그리드 */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0; /* 좌측 텍스트 박스와 우측 이미지를 맞붙여 하나의 캡슐로 */
+    align-items: stretch; /* 좌우 박스 높이 일치 */
+  }
+}
+
+/* 핵심 철학 단일 박스 */
+.box {
+  border: 1px solid var(--color-graphite, #121212); /* 1px 아웃라인 테두리 */
+  border-top: none; /* 모바일에서 위쪽 이미지 박스와 테두리가 겹쳐 두꺼워지는 현상 방지 */
+  background-color: var(--color-canvas, #FFFFFF);
+  padding: 2rem 1.25rem; /* 모바일에서의 압축된 패딩 (좌우 여백을 줄여 텍스트 가로폭 확보) */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* 2열 정렬 시 세로축 중앙 정렬 */
+  text-align: center;
+  height: 100%;
+  max-width: 420px; /* 모바일 폭이 너무 가득 차서 길어지는 것 예방 */
+  margin-left: auto; /* 모바일 가운데 정렬 */
+  margin-right: auto;
+  /* hover 효과에 필요한 속성만 transition — 'all' 은 Framer 의 clip-path 진입 애니메이션과 충돌 */
+  transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  order: 2; /* 모바일에서 이미지가 위로 가고 텍스트가 아래로 가도록 순서 조정 */
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-left-radius: 28px; /* 모바일 세로 배치 시 하단부를 파격적으로 더 둥글게 */
+  border-bottom-right-radius: 28px;
+}
+
+.box:hover {
+  border-color: var(--color-silver-deep, #8B8F96);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.02);
+}
+
+@media (min-width: 768px) {
+  .box {
+    border-top: 1px solid var(--color-graphite, #121212); /* 데스크톱에서는 2열 구조이므로 위쪽 테두리 복원 */
+    border-right: none; /* 우측 이미지와 맞붙으므로 가운데 테두리 겹침(2px) 방지 — 이미지의 좌측 1px만 구분선으로 사용 */
+    padding: 3rem 2rem; /* 데스크톱 패딩 복원 */
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    order: 0; /* 데스크톱에서는 원래 순서(좌측)로 복원 */
+    border-top-left-radius: 40px; /* 데스크톱에서 좌측 모서리를 파격적으로 더 둥글게 */
+    border-bottom-left-radius: 40px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+/* 상단 캡션 라벨 */
+.label {
+  font-family: var(--font-mono), monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-silver-deep, #94A3B8);
+  margin-bottom: 1.5rem;
+}
+
+/* 핵심 가치 철학 본문 문구 */
+.text {
+  font-family: var(--font-body), sans-serif;
+  font-size: 13px; /* 모바일에서 2~3줄로 조절하기 위해 폰트 크기 조정 */
+  font-weight: 400;
+  line-height: 1.75; /* 압축된 줄간격 */
+  color: var(--color-graphite, #121212);
+  letter-spacing: -0.015em;
+  word-break: keep-all; /* 한글 단어 단위 개행 보장 */
+}
+
+@media (min-width: 768px) {
+  .text {
+    font-size: 20px; /* 데스크톱 본문 폰트 크기 복원 */
+    line-height: 1.85;
+  }
+}
+
+/* 우측 이미지 영역 래퍼 */
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  max-width: 420px; /* 모바일에서의 폭 제한 */
+  height: 250px; /* 모바일에서 Next.js fill 이미지가 붕괴되지 않도록 명시적 높이 250px 고정 지정 */
+  overflow: hidden;
+  border: 1px solid var(--color-graphite, #121212);
+  background-color: var(--color-paper, #F8FAFC);
+  margin-left: auto; /* 이미지 중앙 정렬 */
+  margin-right: auto;
+  transition: border-color 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  order: 1; /* 모바일에서 이미지가 위(첫 번째)로 오도록 순서 설정 */
+  border-top-left-radius: 28px; /* 모바일 세로 배치 시 상단부를 파격적으로 더 둥글게 */
+  border-top-right-radius: 28px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+@media (min-width: 768px) {
+  .imageWrapper {
+    aspect-ratio: auto; /* 데스크톱에서는 텍스트 박스 높이에 자동 맞춤 */
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    height: 100%; /* 데스크톱 stretch 2열 구조에서는 100% 높이 적용 */
+    order: 0; /* 데스크톱에서는 원래 순서(우측)로 복원 */
+    border-top-right-radius: 40px; /* 데스크톱에서 우측 모서리를 파격적으로 더 둥글게 */
+    border-bottom-right-radius: 40px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+.imageWrapper:hover {
+  border-color: var(--color-silver-deep, #8B8F96);
+}
+
+/* 용접 작업 이미지 */
+.image {
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageWrapper:hover .image {
+  transform: scale(1.03); /* 호버 시 미세 줌인 */
+}

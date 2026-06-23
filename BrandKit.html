@@ -1,0 +1,1763 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>열림인테리어 — Brand Kit / 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+<style>
+  :root {
+    /* === Surfaces === */
+    --bg-deepest: #0E0E0E;
+    --bg-primary: #161616;
+    --bg-elevated: #1F1F1F;
+    --bg-surface: #232323;
+    --bg-hover: #2A2A2A;
+
+    /* === Text === */
+    --text-primary: #F4F4F5;
+    --text-secondary: #A1A1AA;
+    --text-tertiary: #71717A;
+    --text-quaternary: #52525B;
+
+    /* === Borders === */
+    --border-subtle: #262626;
+    --border-default: #2E2E2E;
+    --border-strong: #3F3F3F;
+
+    /* === Metallic Accents === */
+    --silver-base: #C4C7CC;
+    --silver-bright: #E5E7EB;
+    --silver-deep: #8B8F96;
+    --steel: #6B7280;
+    --gunmetal: #4B4F58;
+
+    /* === Functional === */
+    --accent-primary: #C4C7CC;
+
+    /* === Fonts === */
+    --font-display: "Inter", "Pretendard Variable", sans-serif;
+    --font-body: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-mono: "JetBrains Mono", "D2Coding", Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-weight: 400;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+  }
+
+  /* Subtle noise texture (metallic feel) */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.04;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  /* ============ TOP META BAR ============ */
+  .meta-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(22, 22, 22, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .meta-bar__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 16px 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+  }
+  .meta-bar__left { display: flex; gap: 32px; align-items: center; }
+  .meta-bar__brand {
+    color: var(--text-primary);
+    font-weight: 700;
+    letter-spacing: 0.14em;
+  }
+  .meta-bar__right { display: flex; gap: 24px; }
+  .meta-bar a { color: inherit; text-decoration: none; transition: color 200ms; }
+  .meta-bar a:hover { color: var(--silver-base); }
+
+  /* ============ HERO ============ */
+  .hero {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 160px 48px 120px;
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+  }
+  /* Subtle brushed-metal gradient overlay */
+  .hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+      transparent 0%,
+      transparent 40%,
+      rgba(196, 199, 204, 0.03) 50%,
+      transparent 60%,
+      transparent 100%
+    );
+    pointer-events: none;
+  }
+  .hero__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: end;
+    position: relative;
+    z-index: 2;
+  }
+  .hero__eyebrow {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .hero__eyebrow::before {
+    content: "";
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--silver-base));
+  }
+  .hero__title {
+    font-family: var(--font-display);
+    font-size: clamp(60px, 8vw, 124px);
+    font-weight: 200;
+    line-height: 0.92;
+    letter-spacing: -0.045em;
+    color: var(--text-primary);
+    margin-bottom: 40px;
+  }
+  .hero__title em {
+    font-style: normal;
+    font-weight: 700;
+    background: linear-gradient(180deg, #F4F4F5 0%, #C4C7CC 50%, #8B8F96 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: block;
+  }
+  .hero__lede {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 480px;
+    font-weight: 400;
+  }
+  .hero__lede strong { color: var(--text-primary); font-weight: 600; }
+
+  .hero__sidemeta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-quaternary);
+    line-height: 1.9;
+    letter-spacing: 0.06em;
+  }
+  .hero__sidemeta dt {
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    margin-top: 20px;
+    font-size: 10px;
+  }
+  .hero__sidemeta dt:first-child { margin-top: 0; }
+  .hero__sidemeta dd {
+    color: var(--text-primary);
+    font-weight: 500;
+    margin-bottom: 4px;
+  }
+
+  /* ============ SECTION FRAME ============ */
+  section.chapter {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 120px 48px;
+    border-bottom: 1px solid var(--border-subtle);
+    scroll-margin-top: 80px;
+    position: relative;
+  }
+  .chapter__header {
+    display: grid;
+    grid-template-columns: 80px 1fr 360px;
+    gap: 48px;
+    margin-bottom: 80px;
+    align-items: baseline;
+  }
+  .chapter__num {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-quaternary);
+    letter-spacing: 0.1em;
+    font-weight: 500;
+  }
+  .chapter__title {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    color: var(--text-primary);
+    line-height: 1.02;
+  }
+  .chapter__title small {
+    display: block;
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+    margin-top: 16px;
+  }
+  .chapter__intro {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--text-secondary);
+  }
+
+  /* ============ 01 — ESSENCE ============ */
+  .essence-quote {
+    padding: 80px 0;
+    border-top: 1px solid var(--border-subtle);
+    border-bottom: 1px solid var(--border-subtle);
+    margin-bottom: 80px;
+    position: relative;
+  }
+  .essence-quote::before {
+    content: '"';
+    position: absolute;
+    top: -40px;
+    left: -20px;
+    font-family: var(--font-display);
+    font-size: 200px;
+    line-height: 1;
+    color: var(--border-strong);
+    font-weight: 700;
+  }
+  .essence-quote blockquote {
+    font-family: var(--font-display);
+    font-size: clamp(28px, 4vw, 52px);
+    font-weight: 300;
+    line-height: 1.25;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+    max-width: 920px;
+    position: relative;
+    z-index: 2;
+  }
+  .essence-quote blockquote em {
+    font-style: normal;
+    font-weight: 600;
+    background: linear-gradient(180deg, var(--silver-bright), var(--silver-deep));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .essence-quote cite {
+    display: block;
+    margin-top: 40px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+    font-style: normal;
+  }
+
+  .personality-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border-default);
+    border-left: 1px solid var(--border-default);
+  }
+  .personality-cell {
+    padding: 36px 32px;
+    border-right: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+    background: var(--bg-elevated);
+    transition: background 300ms;
+  }
+  .personality-cell:hover { background: var(--bg-surface); }
+  .personality-cell__label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .personality-cell__value {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--text-primary);
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+  }
+
+  /* ============ 02 — LOGO ============ */
+  .logo-board {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border-default);
+  }
+  .logo-board__primary {
+    aspect-ratio: 2 / 1;
+    background: var(--bg-elevated);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid var(--border-default);
+    position: relative;
+    overflow: hidden;
+  }
+  /* Brushed metal sheen */
+  .logo-board__primary::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(115deg,
+      transparent 30%,
+      rgba(196, 199, 204, 0.04) 50%,
+      transparent 70%);
+  }
+  .logo-board__primary[data-label]::after,
+  .logo-board__reverse[data-label]::after {
+    content: attr(data-label);
+    position: absolute;
+    top: 20px;
+    left: 24px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-quaternary);
+    z-index: 2;
+  }
+  .logo-board__reverse {
+    background: #F4F4F5;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .logo-board__reverse[data-label]::after { color: #71717A; }
+
+  .yl-logo {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    position: relative;
+    z-index: 2;
+  }
+  .yl-logo--lg { transform: scale(1.6); }
+  .yl-logo__symbol {
+    width: 44px;
+    height: 44px;
+  }
+  .yl-logo__wordmark {
+    display: flex;
+    flex-direction: column;
+    line-height: 1;
+  }
+  .yl-logo__wordmark--main {
+    font-family: var(--font-display);
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .yl-logo__wordmark--sub {
+    font-family: var(--font-display);
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.36em;
+    margin-top: 6px;
+  }
+  .yl-logo--light .yl-logo__wordmark--main { color: var(--text-primary); }
+  .yl-logo--light .yl-logo__wordmark--sub { color: var(--silver-base); }
+  .yl-logo--dark .yl-logo__wordmark--main { color: #161616; }
+  .yl-logo--dark .yl-logo__wordmark--sub { color: #71717A; }
+
+  .logo-specs {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border-top: 1px solid var(--border-default);
+    border-left: 1px solid var(--border-default);
+  }
+  .logo-spec {
+    padding: 28px 32px;
+    border-right: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+    background: var(--bg-elevated);
+  }
+  .logo-spec__label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .logo-spec__value {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+  .logo-spec__value small {
+    display: block;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--text-secondary);
+    margin-top: 6px;
+    line-height: 1.5;
+  }
+
+  /* ============ 03 — COLOR ============ */
+  /* Primary surface row */
+  .color-grid-surface {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0;
+    border: 1px solid var(--border-default);
+    border-bottom: none;
+  }
+  .color-card-sm {
+    cursor: pointer;
+    border-right: 1px solid var(--border-default);
+    transition: transform 250ms ease;
+    background: var(--bg-elevated);
+  }
+  .color-card-sm:last-child { border-right: none; }
+  .color-card-sm:hover .color-card-sm__copy { opacity: 1; }
+  .color-card-sm__swatch {
+    aspect-ratio: 4 / 3;
+    border-bottom: 1px solid var(--border-default);
+    position: relative;
+  }
+  .color-card-sm__copy {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    opacity: 0;
+    transition: opacity 200ms;
+  }
+  .color-card-sm__body {
+    padding: 18px 20px;
+  }
+  .color-card-sm__name {
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2px;
+    letter-spacing: -0.005em;
+  }
+  .color-card-sm__hex {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+  }
+  .color-card-sm__role {
+    font-family: var(--font-mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+    margin-top: 8px;
+  }
+
+  /* Metallic accent row — emphasized */
+  .color-grid-metallic {
+    margin-top: 64px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0;
+    border: 1px solid var(--border-default);
+  }
+  .color-card-lg {
+    cursor: pointer;
+    border-right: 1px solid var(--border-default);
+    transition: background 250ms;
+    position: relative;
+    overflow: hidden;
+  }
+  .color-card-lg:last-child { border-right: none; }
+  .color-card-lg:hover .color-card-lg__copy { opacity: 1; }
+  .color-card-lg__swatch {
+    aspect-ratio: 3 / 2;
+    position: relative;
+    overflow: hidden;
+  }
+  /* Brushed metal sheen on each metallic swatch */
+  .color-card-lg__swatch::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg,
+      transparent 20%,
+      rgba(255, 255, 255, 0.08) 45%,
+      rgba(255, 255, 255, 0.12) 50%,
+      rgba(255, 255, 255, 0.08) 55%,
+      transparent 80%);
+    pointer-events: none;
+  }
+  .color-card-lg__copy {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0;
+    transition: opacity 200ms;
+    z-index: 2;
+  }
+  .color-card-lg__body {
+    padding: 28px 32px;
+    background: var(--bg-elevated);
+    border-top: 1px solid var(--border-default);
+  }
+  .color-card-lg__name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    margin-bottom: 6px;
+  }
+  .color-card-lg__role {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .color-card-lg__values {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    line-height: 1.9;
+    color: var(--text-secondary);
+  }
+  .color-card-lg__values span {
+    color: var(--text-quaternary);
+    display: inline-block;
+    width: 56px;
+  }
+
+  /* Text colors */
+  .text-color-stack {
+    margin-top: 64px;
+    border: 1px solid var(--border-default);
+  }
+  .text-color-row {
+    display: grid;
+    grid-template-columns: 140px 1fr 1fr 140px;
+    gap: 24px;
+    padding: 28px 32px;
+    border-bottom: 1px solid var(--border-default);
+    align-items: center;
+    background: var(--bg-elevated);
+    cursor: pointer;
+    transition: background 200ms;
+  }
+  .text-color-row:last-child { border-bottom: none; }
+  .text-color-row:hover { background: var(--bg-surface); }
+  .text-color-row__label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+  }
+  .text-color-row__sample {
+    font-size: 18px;
+    font-weight: 500;
+  }
+  .text-color-row__hex {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-tertiary);
+    letter-spacing: 0.04em;
+  }
+  .text-color-row__usage {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-quaternary);
+    letter-spacing: 0.08em;
+    text-align: right;
+  }
+
+  /* Proportion bar */
+  .proportion-bar {
+    margin-top: 64px;
+    border: 1px solid var(--border-default);
+    padding: 36px;
+    background: var(--bg-elevated);
+  }
+  .proportion-bar__title {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+  .proportion-bar__track {
+    display: flex;
+    height: 64px;
+    border: 1px solid var(--border-default);
+  }
+  .proportion-bar__seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border-right: 1px solid var(--border-default);
+  }
+  .proportion-bar__seg:last-child { border-right: none; }
+
+  /* ============ 04 — TYPOGRAPHY ============ */
+  .type-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border-default);
+  }
+  .type-pair__cell {
+    padding: 56px 48px;
+    border-right: 1px solid var(--border-default);
+    background: var(--bg-elevated);
+  }
+  .type-pair__cell:last-child { border-right: none; }
+  .type-pair__role {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+    margin-bottom: 28px;
+  }
+  .type-pair__name {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+  }
+  .type-pair__name.mono { font-family: var(--font-mono); }
+  .type-pair__name.kr { font-family: var(--font-body); }
+  .type-pair__weights {
+    font-family: var(--font-display);
+    font-size: 32px;
+    letter-spacing: -0.01em;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+  .type-pair__weights span { display: inline-block; margin-right: 16px; }
+  .type-pair__use {
+    margin-top: 28px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    line-height: 1.8;
+    letter-spacing: 0.06em;
+  }
+
+  /* Type specimen rows */
+  .type-specimen {
+    margin-top: 64px;
+    border: 1px solid var(--border-default);
+  }
+  .type-row {
+    display: grid;
+    grid-template-columns: 160px 1fr 220px;
+    gap: 32px;
+    padding: 36px 40px;
+    border-bottom: 1px solid var(--border-default);
+    align-items: baseline;
+    background: var(--bg-elevated);
+  }
+  .type-row:last-child { border-bottom: none; }
+  .type-row__label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+  }
+  .type-row__sample { color: var(--text-primary); }
+  .type-row__meta {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-tertiary);
+    text-align: right;
+    line-height: 1.7;
+    letter-spacing: 0.04em;
+  }
+
+  .type-display { font-family: var(--font-display); font-size: 64px; font-weight: 200; letter-spacing: -0.04em; line-height: 1.02; }
+  .type-h1 { font-family: var(--font-body); font-size: 36px; font-weight: 700; letter-spacing: -0.02em; }
+  .type-h2 { font-family: var(--font-body); font-size: 24px; font-weight: 600; letter-spacing: -0.01em; }
+  .type-body-lg { font-family: var(--font-body); font-size: 18px; font-weight: 400; line-height: 1.65; }
+  .type-body { font-family: var(--font-body); font-size: 16px; font-weight: 400; line-height: 1.65; }
+  .type-label { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; color: var(--silver-base); }
+  .type-caption { font-family: var(--font-body); font-size: 13px; font-weight: 400; color: var(--text-secondary); }
+
+  /* ============ 05 — COMPONENTS ============ */
+  .component-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+    border: 1px solid var(--border-default);
+  }
+  .comp-cell {
+    padding: 56px 48px;
+    border-right: 1px solid var(--border-default);
+    border-bottom: 1px solid var(--border-default);
+    background: var(--bg-elevated);
+    display: flex;
+    flex-direction: column;
+  }
+  .comp-cell:nth-child(2n) { border-right: none; }
+  .comp-cell:nth-last-child(-n+2) { border-bottom: none; }
+  .comp-cell__label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+    margin-bottom: 40px;
+  }
+  .comp-cell__stage {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 36px 0;
+    background: var(--bg-primary);
+    border: 1px dashed var(--border-default);
+    min-height: 240px;
+  }
+
+  /* Demo: Service Card */
+  .demo-service-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border-default);
+    padding: 32px 28px;
+    width: 320px;
+    transition: border-color 300ms;
+    cursor: pointer;
+  }
+  .demo-service-card:hover { border-color: var(--silver-deep); }
+  .demo-service-card__num {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-quaternary);
+    letter-spacing: 0.14em;
+    margin-bottom: 20px;
+  }
+  .demo-service-card__title {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .demo-service-card__sub {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--silver-base);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .demo-service-card__desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Demo: Buttons */
+  .demo-buttons { display: flex; flex-direction: column; gap: 20px; align-items: flex-start; }
+  .demo-btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border: none;
+    padding: 16px 32px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.02em;
+    transition: background 200ms;
+  }
+  .demo-btn-primary:hover { background: var(--silver-base); }
+  .demo-btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border-strong);
+    color: var(--text-primary);
+    padding: 15px 31px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 200ms;
+  }
+  .demo-btn-ghost:hover { border-color: var(--silver-base); color: var(--silver-base); }
+  .demo-btn-icon {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--bg-surface);
+    color: var(--text-primary);
+    border: 1px solid var(--border-default);
+    padding: 14px 24px;
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* Demo: Input */
+  .demo-input-group { display: flex; flex-direction: column; gap: 8px; width: 100%; max-width: 360px; }
+  .demo-input-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+  }
+  .demo-input {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-default);
+    padding: 14px 18px;
+    color: var(--text-primary);
+    font-size: 15px;
+    font-family: var(--font-body);
+    outline: none;
+    transition: border-color 200ms;
+  }
+  .demo-input:focus { border-color: var(--silver-base); }
+  .demo-input::placeholder { color: var(--text-quaternary); }
+
+  /* Demo: Accordion */
+  .demo-accordion {
+    width: 100%;
+    max-width: 380px;
+    border-top: 1px solid var(--border-default);
+  }
+  .demo-accordion__item {
+    border-bottom: 1px solid var(--border-default);
+  }
+  .demo-accordion__head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    cursor: pointer;
+  }
+  .demo-accordion__title { font-size: 16px; font-weight: 500; color: var(--text-primary); }
+  .demo-accordion__plus { color: var(--silver-base); font-size: 18px; }
+  .demo-accordion__item--open .demo-accordion__plus { transform: rotate(45deg); }
+  .demo-accordion__body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 300ms ease, padding 300ms ease;
+    color: var(--text-secondary);
+    font-size: 14px;
+  }
+  .demo-accordion__item--open .demo-accordion__body {
+    max-height: 120px;
+    padding: 0 0 20px;
+  }
+
+  /* ============ 06 — VOICE ============ */
+  .voice-table {
+    border: 1px solid var(--border-default);
+  }
+  .voice-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--border-default);
+  }
+  .voice-row:last-child { border-bottom: none; }
+  .voice-row__cell {
+    padding: 30px 36px;
+    border-right: 1px solid var(--border-default);
+    background: var(--bg-elevated);
+  }
+  .voice-row__cell:last-child { border-right: none; }
+  .voice-row__cell--header {
+    background: var(--bg-surface);
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+  }
+  .voice-row__context {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+  }
+  .voice-row__dont {
+    font-size: 16px;
+    color: var(--text-quaternary);
+    text-decoration: line-through;
+    text-decoration-thickness: 1px;
+  }
+  .voice-row__do {
+    font-size: 16px;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* ============ 07 — RULES ============ */
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border-default);
+  }
+  .rules-col { padding: 56px 48px; background: var(--bg-elevated); }
+  .rules-col--do { border-right: 1px solid var(--border-default); }
+  .rules-col__title {
+    font-family: var(--font-display);
+    font-size: 36px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: 36px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .rules-col__title::before {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    border: 1.5px solid currentColor;
+  }
+  .rules-col--do .rules-col__title { color: var(--silver-base); }
+  .rules-col--do .rules-col__title::before { content: "✓"; }
+  .rules-col--dont .rules-col__title { color: var(--text-secondary); }
+  .rules-col--dont .rules-col__title::before { content: "✗"; }
+  .rules-list { list-style: none; }
+  .rules-list li {
+    padding: 18px 0;
+    border-bottom: 1px solid var(--border-default);
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--text-primary);
+    display: flex;
+    gap: 16px;
+  }
+  .rules-list li:last-child { border-bottom: none; }
+  .rules-list li::before {
+    content: "—";
+    color: var(--text-quaternary);
+    flex-shrink: 0;
+  }
+
+  /* ============ FOOTER ============ */
+  footer.colophon {
+    background: var(--bg-deepest);
+    color: var(--text-primary);
+    padding: 100px 48px 56px;
+    border-top: 1px solid var(--border-subtle);
+  }
+  .colophon__inner { max-width: 1440px; margin: 0 auto; }
+  .colophon__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 64px;
+    padding-bottom: 64px;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+  .colophon__brand {
+    font-family: var(--font-display);
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+  .colophon__brand small {
+    display: block;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.36em;
+    margin-top: 8px;
+    color: var(--silver-base);
+  }
+  .colophon__tag {
+    font-size: 14px;
+    color: var(--text-secondary);
+    max-width: 360px;
+    line-height: 1.7;
+  }
+  .colophon__col h4 {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-tertiary);
+    margin-bottom: 20px;
+    font-weight: 500;
+  }
+  .colophon__col p {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.9;
+  }
+  .colophon__bottom {
+    padding-top: 32px;
+    display: flex;
+    justify-content: space-between;
+    font-family: var(--font-mono);
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    color: var(--text-quaternary);
+    text-transform: uppercase;
+  }
+
+  /* Toast */
+  .toast {
+    position: fixed;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%) translateY(120px);
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    padding: 14px 28px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: transform 350ms cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1000;
+    pointer-events: none;
+    font-weight: 600;
+  }
+  .toast.show { transform: translateX(-50%) translateY(0); }
+
+  /* Mobile */
+  @media (max-width: 1024px) {
+    .meta-bar__inner { padding: 14px 24px; }
+    .meta-bar__right { display: none; }
+    .hero { padding: 100px 24px 64px; }
+    .hero__grid { grid-template-columns: 1fr; gap: 56px; }
+    section.chapter { padding: 80px 24px; }
+    .chapter__header { grid-template-columns: 1fr; gap: 16px; }
+    .chapter__title { font-size: 40px; }
+    .personality-grid { grid-template-columns: repeat(2, 1fr); }
+    .color-grid-surface { grid-template-columns: repeat(2, 1fr); }
+    .color-grid-metallic { grid-template-columns: 1fr; }
+    .logo-board { grid-template-columns: 1fr; }
+    .logo-specs { grid-template-columns: 1fr; }
+    .component-grid { grid-template-columns: 1fr; }
+    .comp-cell { border-right: none; }
+    .type-row { grid-template-columns: 1fr; gap: 14px; padding: 28px; }
+    .type-row__meta { text-align: left; }
+    .type-pair { grid-template-columns: 1fr; }
+    .type-pair__cell { border-right: none; border-bottom: 1px solid var(--border-default); }
+    .voice-row { grid-template-columns: 1fr; }
+    .voice-row__cell { border-right: none; }
+    .rules-grid { grid-template-columns: 1fr; }
+    .rules-col--do { border-right: none; border-bottom: 1px solid var(--border-default); }
+    .colophon__grid { grid-template-columns: 1fr; gap: 32px; }
+    .colophon__bottom { flex-direction: column; gap: 8px; }
+    .text-color-row { grid-template-columns: 1fr; gap: 8px; }
+    .text-color-row__usage { text-align: left; }
+  }
+
+  /* Reveal on scroll */
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 800ms cubic-bezier(0.16, 1, 0.3, 1),
+                transform 800ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- TOP META BAR -->
+<div class="meta-bar">
+  <div class="meta-bar__inner">
+    <div class="meta-bar__left">
+      <span class="meta-bar__brand">Yeollim / Brand Kit</span>
+      <span>Vol. 01 — 2026</span>
+    </div>
+    <div class="meta-bar__right">
+      <a href="#essence">01 Essence</a>
+      <a href="#logo">02 Logo</a>
+      <a href="#color">03 Color</a>
+      <a href="#typography">04 Type</a>
+      <a href="#components">05 Components</a>
+      <a href="#voice">06 Voice</a>
+      <a href="#rules">07 Rules</a>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero__eyebrow">열림인테리어 · Yeollim Interior · Metal Works</div>
+  <div class="hero__grid">
+    <div>
+      <h1 class="hero__title">
+        Cold steel,<br>
+        warm <em>craft.</em>
+      </h1>
+      <p class="hero__lede">
+        자동문 · 도어 · 금속 하지를 다루는 인테리어 전문 업체. <strong>모던하고 차가운 분위기</strong>를 메탈릭 실버 액센트로 표현한 다크 톤 시각 체계.
+      </p>
+    </div>
+    <dl class="hero__sidemeta">
+      <dt>Document</dt>
+      <dd>Brand Kit / Visual System</dd>
+      <dt>Issue</dt>
+      <dd>2026.05 — v0.1</dd>
+      <dt>Primary Tone</dt>
+      <dd>Modern · Cool · Metallic</dd>
+      <dt>Base</dt>
+      <dd>Dark (#161616 / #1F1F1F / #232323)</dd>
+      <dt>Accent</dt>
+      <dd>Metallic Silver / Steel</dd>
+      <dt>Audience</dt>
+      <dd>40+ · 가독성 우선 설계</dd>
+    </dl>
+  </div>
+</header>
+
+<!-- 01 ESSENCE -->
+<section class="chapter" id="essence">
+  <div class="chapter__header">
+    <span class="chapter__num">01 ─</span>
+    <h2 class="chapter__title">Brand Essence<small>What the work says, before the words</small></h2>
+    <p class="chapter__intro">
+      열림인테리어는 광고하지 않습니다. 보여드립니다. 자동문에서 시작해 금속 하지까지 — 작업 한 건 한 건이 다음 의뢰의 이유가 되도록 일합니다.
+    </p>
+  </div>
+
+  <div class="essence-quote">
+    <blockquote>
+      광고하지 않습니다.<br>
+      <em>보여드립니다.</em> 작업이 곧 자기 소개.
+    </blockquote>
+    <cite>— Yeollim Interior · Brand Principle</cite>
+  </div>
+
+  <div class="personality-grid">
+    <div class="personality-cell">
+      <div class="personality-cell__label">Tone</div>
+      <div class="personality-cell__value">Modern<br>Minimal<br>Cool</div>
+    </div>
+    <div class="personality-cell">
+      <div class="personality-cell__label">Voice</div>
+      <div class="personality-cell__value">Quietly<br>confident.<br>No slogans.</div>
+    </div>
+    <div class="personality-cell">
+      <div class="personality-cell__label">Material</div>
+      <div class="personality-cell__value">Steel<br>Aluminum<br>Brushed metal</div>
+    </div>
+    <div class="personality-cell">
+      <div class="personality-cell__label">Promise</div>
+      <div class="personality-cell__value">Fast<br>Friendly<br>Meticulous</div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 LOGO -->
+<section class="chapter" id="logo">
+  <div class="chapter__header">
+    <span class="chapter__num">02 ─</span>
+    <h2 class="chapter__title">Logo<small>Opening mark + Bold wordmark</small></h2>
+    <p class="chapter__intro">
+      "열림"이라는 이름에 담긴 "여는 동작"을 기하학적 심볼로 시각화. 두 개의 stroke가 살짝 벌어진 형태 — 문이 열리는 순간을 추상화. <strong>그라데이션 · 그림자 · 회전 금지.</strong>
+    </p>
+  </div>
+
+  <div class="logo-board">
+    <div class="logo-board__primary" data-label="01 / Primary on Dark">
+      <div class="yl-logo yl-logo--light yl-logo--lg">
+        <svg class="yl-logo__symbol" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- "여는" 모양: 두 개의 사선 stroke + 가로선 -->
+          <defs>
+            <linearGradient id="silverGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F4F4F5"/>
+              <stop offset="100%" stop-color="#8B8F96"/>
+            </linearGradient>
+          </defs>
+          <path d="M6 38 L18 6" stroke="url(#silverGrad)" stroke-width="3" stroke-linecap="square"/>
+          <path d="M26 6 L38 38" stroke="url(#silverGrad)" stroke-width="3" stroke-linecap="square"/>
+          <path d="M10 28 L34 28" stroke="url(#silverGrad)" stroke-width="3" stroke-linecap="square"/>
+        </svg>
+        <div class="yl-logo__wordmark">
+          <span class="yl-logo__wordmark--main">YEOLLIM</span>
+          <span class="yl-logo__wordmark--sub">INTERIOR</span>
+        </div>
+      </div>
+    </div>
+    <div class="logo-board__reverse" data-label="02 / Reverse on Light">
+      <div class="yl-logo yl-logo--dark">
+        <svg class="yl-logo__symbol" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 38 L18 6" stroke="#161616" stroke-width="3" stroke-linecap="square"/>
+          <path d="M26 6 L38 38" stroke="#161616" stroke-width="3" stroke-linecap="square"/>
+          <path d="M10 28 L34 28" stroke="#161616" stroke-width="3" stroke-linecap="square"/>
+        </svg>
+        <div class="yl-logo__wordmark">
+          <span class="yl-logo__wordmark--main">YEOLLIM</span>
+          <span class="yl-logo__wordmark--sub">INTERIOR</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="logo-specs">
+    <div class="logo-spec">
+      <div class="logo-spec__label">Clear Space</div>
+      <div class="logo-spec__value">1× cap height<small>워드마크 'Y' 높이의 1배 이상 여백 확보</small></div>
+    </div>
+    <div class="logo-spec">
+      <div class="logo-spec__label">Minimum Width (Web)</div>
+      <div class="logo-spec__value">140 px<small>워드마크 기준 최소 가로 폭</small></div>
+    </div>
+    <div class="logo-spec">
+      <div class="logo-spec__label">Symbol Minimum</div>
+      <div class="logo-spec__value">28 × 28 px<small>favicon, mobile app icon 용도</small></div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 COLOR -->
+<section class="chapter" id="color">
+  <div class="chapter__header">
+    <span class="chapter__num">03 ─</span>
+    <h2 class="chapter__title">Color Palette<small>Click any swatch to copy HEX</small></h2>
+    <p class="chapter__intro">
+      <strong>다크 베이스 + 메탈릭 실버 액센트</strong>. 메인 컬러는 진한 검정 톤(#161616) 기반으로 40대+ 고객의 눈 피로를 최소화. 액센트는 브러시드 메탈을 연상시키는 실버 그라데이션 톤.
+    </p>
+  </div>
+
+  <!-- Surface tones -->
+  <div style="margin-bottom: 16px;">
+    <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 16px;">— Surface Tones / Base</div>
+  </div>
+  <div class="color-grid-surface">
+    <div class="color-card-sm" data-hex="#0E0E0E">
+      <div class="color-card-sm__swatch" style="background: #0E0E0E"><span class="color-card-sm__copy">Copy</span></div>
+      <div class="color-card-sm__body">
+        <div class="color-card-sm__name">Obsidian</div>
+        <div class="color-card-sm__hex">#0E0E0E</div>
+        <div class="color-card-sm__role">Footer · Deepest</div>
+      </div>
+    </div>
+    <div class="color-card-sm" data-hex="#161616">
+      <div class="color-card-sm__swatch" style="background: #161616"><span class="color-card-sm__copy">Copy</span></div>
+      <div class="color-card-sm__body">
+        <div class="color-card-sm__name">Graphite</div>
+        <div class="color-card-sm__hex">#161616</div>
+        <div class="color-card-sm__role">★ Primary BG</div>
+      </div>
+    </div>
+    <div class="color-card-sm" data-hex="#1F1F1F">
+      <div class="color-card-sm__swatch" style="background: #1F1F1F"><span class="color-card-sm__copy">Copy</span></div>
+      <div class="color-card-sm__body">
+        <div class="color-card-sm__name">Charcoal</div>
+        <div class="color-card-sm__hex">#1F1F1F</div>
+        <div class="color-card-sm__role">Card · Elevated</div>
+      </div>
+    </div>
+    <div class="color-card-sm" data-hex="#232323">
+      <div class="color-card-sm__swatch" style="background: #232323"><span class="color-card-sm__copy">Copy</span></div>
+      <div class="color-card-sm__body">
+        <div class="color-card-sm__name">Smoke</div>
+        <div class="color-card-sm__hex">#232323</div>
+        <div class="color-card-sm__role">Input · Surface</div>
+      </div>
+    </div>
+    <div class="color-card-sm" data-hex="#2A2A2A">
+      <div class="color-card-sm__swatch" style="background: #2A2A2A"><span class="color-card-sm__copy">Copy</span></div>
+      <div class="color-card-sm__body">
+        <div class="color-card-sm__name">Iron</div>
+        <div class="color-card-sm__hex">#2A2A2A</div>
+        <div class="color-card-sm__role">Hover State</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Metallic Accents - emphasized -->
+  <div style="margin-top: 64px;">
+    <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 16px;">— Metallic Accents / Brand Identity</div>
+  </div>
+  <div class="color-grid-metallic">
+    <div class="color-card-lg" data-hex="#E5E7EB">
+      <div class="color-card-lg__swatch" style="background: linear-gradient(135deg, #F4F4F5, #E5E7EB);">
+        <span class="color-card-lg__copy" style="color: #52525B;">Click to copy</span>
+      </div>
+      <div class="color-card-lg__body">
+        <div class="color-card-lg__name" style="color: #F4F4F5;">Polished Silver</div>
+        <div class="color-card-lg__role">High accents · Logo highlight</div>
+        <div class="color-card-lg__values">
+          <div><span>HEX</span>#E5E7EB</div>
+          <div><span>RGB</span>229, 231, 235</div>
+          <div><span>USE</span>Hero gradient · Logo top</div>
+        </div>
+      </div>
+    </div>
+    <div class="color-card-lg" data-hex="#C4C7CC">
+      <div class="color-card-lg__swatch" style="background: linear-gradient(135deg, #D1D5DB, #C4C7CC);">
+        <span class="color-card-lg__copy" style="color: #52525B;">Click to copy</span>
+      </div>
+      <div class="color-card-lg__body">
+        <div class="color-card-lg__name" style="color: #C4C7CC;">★ Brushed Silver</div>
+        <div class="color-card-lg__role">Primary accent · CTA · Active</div>
+        <div class="color-card-lg__values">
+          <div><span>HEX</span>#C4C7CC</div>
+          <div><span>RGB</span>196, 199, 204</div>
+          <div><span>USE</span>Links · Hover · Borders ◆</div>
+        </div>
+      </div>
+    </div>
+    <div class="color-card-lg" data-hex="#8B8F96">
+      <div class="color-card-lg__swatch" style="background: linear-gradient(135deg, #9CA0A6, #8B8F96);">
+        <span class="color-card-lg__copy" style="color: #F4F4F5;">Click to copy</span>
+      </div>
+      <div class="color-card-lg__body">
+        <div class="color-card-lg__name" style="color: #8B8F96;">Deep Steel</div>
+        <div class="color-card-lg__role">Secondary accent · Dividers</div>
+        <div class="color-card-lg__values">
+          <div><span>HEX</span>#8B8F96</div>
+          <div><span>RGB</span>139, 143, 150</div>
+          <div><span>USE</span>Subtle accents · Icons</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Text colors -->
+  <div style="margin-top: 64px;">
+    <div style="font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.16em; color: var(--text-tertiary); text-transform: uppercase; margin-bottom: 16px;">— Text on Dark / Accessibility-tuned for 40+</div>
+  </div>
+  <div class="text-color-stack">
+    <div class="text-color-row" data-hex="#F4F4F5">
+      <div class="text-color-row__label">Primary</div>
+      <div class="text-color-row__sample" style="color: #F4F4F5;">금속으로 여는 공간</div>
+      <div class="text-color-row__hex">#F4F4F5</div>
+      <div class="text-color-row__usage">Body · Heading<br>Contrast 16.9:1 AAA</div>
+    </div>
+    <div class="text-color-row" data-hex="#A1A1AA">
+      <div class="text-color-row__label">Secondary</div>
+      <div class="text-color-row__sample" style="color: #A1A1AA;">자동문 · 도어 · 금속 하지</div>
+      <div class="text-color-row__hex">#A1A1AA</div>
+      <div class="text-color-row__usage">Sub copy · Meta<br>Contrast 6.7:1 AAA</div>
+    </div>
+    <div class="text-color-row" data-hex="#71717A">
+      <div class="text-color-row__label">Tertiary</div>
+      <div class="text-color-row__sample" style="color: #71717A;">2025 · 서울 강남구</div>
+      <div class="text-color-row__hex">#71717A</div>
+      <div class="text-color-row__usage">Captions · Date<br>Contrast 4.0:1 AA</div>
+    </div>
+    <div class="text-color-row" data-hex="#52525B">
+      <div class="text-color-row__label">Quaternary</div>
+      <div class="text-color-row__sample" style="color: #52525B;">— Decorative only —</div>
+      <div class="text-color-row__hex">#52525B</div>
+      <div class="text-color-row__usage">Decorative only<br>Not for body</div>
+    </div>
+  </div>
+
+  <!-- Proportion Bar -->
+  <div class="proportion-bar">
+    <div class="proportion-bar__title">Color Proportion — Dark Base · Silver Accent</div>
+    <div class="proportion-bar__track">
+      <div class="proportion-bar__seg" style="flex: 70; background: #161616; color: #A1A1AA;">Dark Base · 70%</div>
+      <div class="proportion-bar__seg" style="flex: 18; background: #1F1F1F; color: #C4C7CC;">Elevated · 18%</div>
+      <div class="proportion-bar__seg" style="flex: 8; background: linear-gradient(135deg, #D1D5DB, #C4C7CC); color: #161616; font-weight: 600;">Silver · 8%</div>
+      <div class="proportion-bar__seg" style="flex: 4; background: #F4F4F5; color: #161616; font-weight: 600;">Text · 4%</div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 TYPOGRAPHY -->
+<section class="chapter" id="typography">
+  <div class="chapter__header">
+    <span class="chapter__num">04 ─</span>
+    <h2 class="chapter__title">Typography<small>Inter · Pretendard · JetBrains Mono</small></h2>
+    <p class="chapter__intro">
+      영문 디스플레이는 <strong>Inter</strong>, 한글 본문은 <strong>Pretendard</strong>, 라벨·코드는 <strong>JetBrains Mono</strong>. 40대+ 고객 가독성을 위해 본문 최소 16px, line-height 1.65 이상.
+    </p>
+  </div>
+
+  <div class="type-pair">
+    <div class="type-pair__cell">
+      <div class="type-pair__role">Display · English</div>
+      <div class="type-pair__name">Inter</div>
+      <div class="type-pair__weights">
+        <span style="font-weight: 200">Thin</span>
+        <span style="font-weight: 400">Regular</span>
+        <span style="font-weight: 700">Bold</span>
+      </div>
+      <div class="type-pair__use">
+        지오메트릭 산세리프.<br>
+        Hero headline, 섹션 타이틀, 영문 라벨.<br>
+        Variable axis 지원으로 100~900 자유 사용.
+      </div>
+    </div>
+    <div class="type-pair__cell">
+      <div class="type-pair__role">Body · Korean</div>
+      <div class="type-pair__name kr">Pretendard</div>
+      <div class="type-pair__weights">
+        <span style="font-weight: 400">Regular</span>
+        <span style="font-weight: 500">Medium</span>
+        <span style="font-weight: 700">Bold</span>
+      </div>
+      <div class="type-pair__use">
+        한국어 최적화 오픈소스.<br>
+        모든 한글 본문·헤더·UI 라벨에 사용.<br>
+        Inter와 메트릭 호환성 우수.
+      </div>
+    </div>
+  </div>
+
+  <div class="type-specimen">
+    <div class="type-row">
+      <div class="type-row__label">Display</div>
+      <div class="type-row__sample type-display">Cold Steel.</div>
+      <div class="type-row__meta">64 / 200 / Inter<br>Letter -0.04em<br>Hero Headline</div>
+    </div>
+    <div class="type-row">
+      <div class="type-row__label">Heading 1</div>
+      <div class="type-row__sample type-h1">작업 분야</div>
+      <div class="type-row__meta">36 / 700 / Pretendard<br>Letter -0.02em<br>Section Title</div>
+    </div>
+    <div class="type-row">
+      <div class="type-row__label">Heading 2</div>
+      <div class="type-row__sample type-h2">자동문 신설 · 수리</div>
+      <div class="type-row__meta">24 / 600 / Pretendard<br>Service Card Title</div>
+    </div>
+    <div class="type-row">
+      <div class="type-row__label">Body Large</div>
+      <div class="type-row__sample type-body-lg">매장·사무실 자동문의 신규 설치와 수리를 진행합니다.</div>
+      <div class="type-row__meta">18 / 400<br>Lede · Intro<br>Line 1.65</div>
+    </div>
+    <div class="type-row">
+      <div class="type-row__label">Body</div>
+      <div class="type-row__sample type-body">힌지 교체, 손잡이 수리 등 수동문 관련 작업을 빠르게 처리합니다. 40대+ 고객 가독성을 위해 최소 16px을 보장합니다.</div>
+      <div class="type-row__meta">16 / 400<br>★ Minimum body<br>Line 1.65</div>
+    </div>
+    <div class="type-row">
+      <div class="type-row__label">Label</div>
+      <div class="type-row__sample type-label">— METAL · FRAMEWORK</div>
+      <div class="type-row__meta">12 / 500 / Mono<br>Letter 0.14em<br>Color: Silver</div>
+    </div>
+    <div class="type-row">
+      <div class="type-row__label">Caption</div>
+      <div class="type-row__sample type-caption">2025 · 서울 강남구 · 자동문 신설</div>
+      <div class="type-row__meta">13 / 400<br>Color: Secondary<br>Image meta</div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 COMPONENTS -->
+<section class="chapter" id="components">
+  <div class="chapter__header">
+    <span class="chapter__num">05 ─</span>
+    <h2 class="chapter__title">Component Library<small>Live specimens</small></h2>
+    <p class="chapter__intro">
+      모든 컴포넌트는 <strong>border-radius 0 · shadow 없음 · transform 없음</strong>의 원칙. Hover 시 border 색상만 silver tone으로 변경. 모션은 affordance 표시 목적으로만.
+    </p>
+  </div>
+
+  <div class="component-grid">
+    <!-- Service Card -->
+    <div class="comp-cell">
+      <div class="comp-cell__label">01 — Service Card</div>
+      <div class="comp-cell__stage">
+        <div class="demo-service-card">
+          <div class="demo-service-card__num">— 03 / 05</div>
+          <div class="demo-service-card__title">고급 도어 신설</div>
+          <div class="demo-service-card__sub">PREMIUM DOOR</div>
+          <div class="demo-service-card__desc">골드 도어 등 고급 마감 도어를 신설합니다. 매장 입면을 결정짓는 첫인상을 만들어 드립니다.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="comp-cell">
+      <div class="comp-cell__label">02 — Buttons</div>
+      <div class="comp-cell__stage">
+        <div class="demo-buttons">
+          <button class="demo-btn-primary">문의하기 →</button>
+          <button class="demo-btn-ghost">레퍼런스 보기</button>
+          <button class="demo-btn-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/></svg>
+            전화 걸기
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Input -->
+    <div class="comp-cell">
+      <div class="comp-cell__label">03 — Form Input</div>
+      <div class="comp-cell__stage">
+        <div class="demo-input-group">
+          <label class="demo-input-label">— 연락처 / Phone</label>
+          <input class="demo-input" type="text" placeholder="010-0000-0000" value="010-1234-5678">
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordion -->
+    <div class="comp-cell">
+      <div class="comp-cell__label">04 — Service Accordion</div>
+      <div class="comp-cell__stage">
+        <div class="demo-accordion">
+          <div class="demo-accordion__item demo-accordion__item--open">
+            <div class="demo-accordion__head">
+              <span class="demo-accordion__title">자동문 신설 · 수리</span>
+              <span class="demo-accordion__plus">+</span>
+            </div>
+            <div class="demo-accordion__body">매장·사무실 자동문의 신규 설치 및 수리.</div>
+          </div>
+          <div class="demo-accordion__item">
+            <div class="demo-accordion__head">
+              <span class="demo-accordion__title">수동문 수리</span>
+              <span class="demo-accordion__plus">+</span>
+            </div>
+          </div>
+          <div class="demo-accordion__item">
+            <div class="demo-accordion__head">
+              <span class="demo-accordion__title">금속 하지 제작 · 시공</span>
+              <span class="demo-accordion__plus">+</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 VOICE -->
+<section class="chapter" id="voice">
+  <div class="chapter__header">
+    <span class="chapter__num">06 ─</span>
+    <h2 class="chapter__title">Voice & Messaging<small>What we say vs. what we don't</small></h2>
+    <p class="chapter__intro">
+      자기 수식어 금지. 작업 그 자체로 말한다. 한·영 표기 동등 노출. <strong>"빠르게 · 친절하게 · 꼼꼼하게"</strong> — 일하는 태도를 그대로 노출.
+    </p>
+  </div>
+
+  <div class="voice-table">
+    <div class="voice-row">
+      <div class="voice-row__cell voice-row__cell--header">Context</div>
+      <div class="voice-row__cell voice-row__cell--header">Don't</div>
+      <div class="voice-row__cell voice-row__cell--header">Do</div>
+    </div>
+    <div class="voice-row">
+      <div class="voice-row__cell voice-row__context">Hero Copy</div>
+      <div class="voice-row__cell voice-row__dont">"최고의 금속 인테리어 전문가!"</div>
+      <div class="voice-row__cell voice-row__do">금속으로 여는 공간.</div>
+    </div>
+    <div class="voice-row">
+      <div class="voice-row__cell voice-row__context">About</div>
+      <div class="voice-row__cell voice-row__dont">"혁신적인 솔루션을 제공합니다"</div>
+      <div class="voice-row__cell voice-row__do">자동문에서 시작해 금속 하지까지.</div>
+    </div>
+    <div class="voice-row">
+      <div class="voice-row__cell voice-row__context">CTA</div>
+      <div class="voice-row__cell voice-row__dont">"지금 무료 상담 받으세요!!"</div>
+      <div class="voice-row__cell voice-row__do">문의하기</div>
+    </div>
+    <div class="voice-row">
+      <div class="voice-row__cell voice-row__context">Service Desc</div>
+      <div class="voice-row__cell voice-row__dont">"프리미엄 골드 도어 시공의 명가"</div>
+      <div class="voice-row__cell voice-row__do">골드 도어 등 고급 도어 신설</div>
+    </div>
+    <div class="voice-row">
+      <div class="voice-row__cell voice-row__context">Empty State</div>
+      <div class="voice-row__cell voice-row__dont">"아직 데이터가 없습니다 😢"</div>
+      <div class="voice-row__cell voice-row__do">해당 분야의 레퍼런스가 곧 추가됩니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 07 RULES -->
+<section class="chapter" id="rules">
+  <div class="chapter__header">
+    <span class="chapter__num">07 ─</span>
+    <h2 class="chapter__title">Do's & Don'ts<small>The boundaries of the system</small></h2>
+    <p class="chapter__intro">
+      이 브랜드는 <strong>무엇을 안 하는가</strong>로 정체성이 정의됩니다. 아래 두 열을 위반하면 모던·차가운 톤이 깨집니다.
+    </p>
+  </div>
+
+  <div class="rules-grid">
+    <div class="rules-col rules-col--do">
+      <h3 class="rules-col__title">Do</h3>
+      <ul class="rules-list">
+        <li>다크 베이스(#161616)에 메탈릭 실버를 1포인트 액센트로</li>
+        <li>본문 텍스트는 거의 흰색(#F4F4F5) · 회색 본문 금지</li>
+        <li>본문 최소 16px · 행간 1.65 이상 (40+ 가독성)</li>
+        <li>작업 사진을 주연으로, UI는 조연</li>
+        <li>모션은 affordance 표시용으로만 (1초 이내)</li>
+        <li>Border-radius는 0~4px 안에서 (직각 우선)</li>
+        <li>한·영 stacked label (한글 위 / 영문 아래)</li>
+      </ul>
+    </div>
+    <div class="rules-col rules-col--dont">
+      <h3 class="rules-col__title">Don't</h3>
+      <ul class="rules-list">
+        <li>화려한 컬러 · 그라데이션 (silver gradient는 예외)</li>
+        <li>실버 외 액센트 컬러 추가 (블루·골드·레드 금지)</li>
+        <li>Drop shadow · glassmorphism · neumorphism</li>
+        <li>Card hover시 scale / translate transform</li>
+        <li>"최고의 · 혁신적인 · 프리미엄" 같은 자기 수식</li>
+        <li>이모지 · 느낌표 · ALL CAPS 과용</li>
+        <li>둥근 모서리 8px 이상</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- COLOPHON -->
+<footer class="colophon">
+  <div class="colophon__inner">
+    <div class="colophon__grid">
+      <div>
+        <div class="colophon__brand">Yeollim<small>INTERIOR</small></div>
+        <p class="colophon__tag">Brand Kit Vol. 01 — 자동문 · 도어 · 금속 하지를 다루는 인테리어 전문 업체의 시각 체계.</p>
+      </div>
+      <div class="colophon__col">
+        <h4>Document</h4>
+        <p>Brand Kit v0.1<br>2026.05<br>Draft</p>
+      </div>
+      <div class="colophon__col">
+        <h4>Companion</h4>
+        <p>PRD.md<br>BrandKit.html</p>
+      </div>
+      <div class="colophon__col">
+        <h4>Stack</h4>
+        <p>Next.js 15<br>Tailwind · Shadcn UI<br>Resend · Vercel</p>
+      </div>
+    </div>
+    <div class="colophon__bottom">
+      <span>© 2026 Yeollim Interior — Brand reference doc</span>
+      <span>Modern · Cool · Metallic / v0.1</span>
+    </div>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast">Copied</div>
+
+<script>
+  // Toast
+  const toast = document.getElementById('toast');
+  let toastTimeout;
+  function showToast(text) {
+    toast.textContent = text;
+    toast.classList.add('show');
+    clearTimeout(toastTimeout);
+    toastTimeout = setTimeout(() => toast.classList.remove('show'), 1800);
+  }
+
+  // Copy on click
+  document.querySelectorAll('[data-hex]').forEach(el => {
+    el.addEventListener('click', () => {
+      const hex = el.dataset.hex;
+      navigator.clipboard.writeText(hex).then(() => {
+        showToast(`${hex} copied`);
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = hex;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast(`${hex} copied`);
+      });
+    });
+  });
+
+  // Accordion toggle (demo)
+  document.querySelectorAll('.demo-accordion__head').forEach(head => {
+    head.addEventListener('click', () => {
+      const item = head.parentElement;
+      const wasOpen = item.classList.contains('demo-accordion__item--open');
+      item.parentElement.querySelectorAll('.demo-accordion__item').forEach(i => i.classList.remove('demo-accordion__item--open'));
+      if (!wasOpen) item.classList.add('demo-accordion__item--open');
+    });
+  });
+
+  // Reveal on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+  document.querySelectorAll('.chapter').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>

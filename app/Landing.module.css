@@ -1,0 +1,10 @@
+/* 히어로 섹션 아래 본문 영역의 은빛 패브릭 텍스처 배경 스타일 */
+.mainContent {
+  position: relative;
+  background-image: url('/images/silver-fabric.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* 텍스처가 콘텐츠 레이아웃과 자연스럽게 녹아들도록 부드러운 틴트 오버레이 처리 */
+  background-color: rgba(248, 250, 252, 0.02);
+}
